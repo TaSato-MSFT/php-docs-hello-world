@@ -8,17 +8,11 @@ if (!function_exists('getallheaders'))
        { 
            if (substr($name, 0, 5) == 'HTTP_') 
            { 
-               $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value; 
+               $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+               echo "$name:$value<br/>";
            } 
        } 
        return $headers; 
     } 
 }
-
-$heads = getallheaders(); 
-
-foreach ($heads as $head => $value) { 
-    echo "$head: $value <br />\n"; 
-} 
-
 ?> 
