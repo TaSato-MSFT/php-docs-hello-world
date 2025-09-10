@@ -1,18 +1,5 @@
 <?php
-if (!function_exists('getallheaders')) 
-{ 
-    function getallheaders() 
-    { 
-       $headers = array (); 
-       foreach ($_SERVER as $name => $value) 
-       { 
-           if (substr($name, 0, 5) == 'HTTP_') 
-           { 
-               $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
-               echo "$name:$value<br/>";
-           } 
-       } 
-       return $headers; 
-    } 
-}
-?> 
+    echo 'ユーザーエージェント: ' . $_SERVER['HTTP_USER_AGENT'] . '<br>';
+    echo 'リクエストメソッド: ' . $_SERVER['REQUEST_METHOD'] . '<br>';
+    echo 'クライアントIPアドレス: ' . $_SERVER['REMOTE_ADDR'] . '<br>';
+?>
